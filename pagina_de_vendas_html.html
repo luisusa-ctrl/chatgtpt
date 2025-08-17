@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pote do Lucro — Guia Definitivo de Bolos no Pote</title>
+  <meta name="description" content="Aprenda a criar e vender bolos no pote irresistíveis usando o que você já tem em casa — e comece a lucrar em até 7 dias. Página de vendas de alta conversão." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pote do Lucro — Guia Definitivo" />
+  <meta property="og:description" content="Aprenda a criar e vender bolos no pote irresistíveis usando o que você já tem em casa." />
+  <meta property="og:image" content="1754949858.png" />
+  <meta property="og:url" content="https://seudominio.com/pote-do-lucro" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fffaf7; /* tom claro de fundo inspirado na capa */
+      --surface: #ffffff;
+      --muted: #6b4f4f; /* marrom suave */
+      --text: #2d1f1f; /* marrom escuro */
+      --brand: #e63946; /* vermelho morango */
+      --brand-2: #f59e0b; /* dourado das moedas */
+      --ok: #10b981;
+      --danger: #ef4444;
+      --shadow: 0 10px 30px rgba(230,57,70,.25);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --radius-lg: 26px;
+      --maxw: 1200px;
+    }
+
+    *{ box-sizing: border-box }
+    html,body{ height:100%; }
+    body{
+      margin:0; font-family: Inter, Ebrima, Segoe UI, Roboto, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(230,57,70,.08), transparent 60%),
+                  radial-gradient(800px 400px at 10% 10%, rgba(245,158,11,.1), transparent 55%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a{ color: inherit; text-decoration: none }
+    img{ max-width:100%; display:block; height:auto }
+    .container{ width: 100%; max-width: var(--maxw); margin-inline:auto; padding: 0 24px; }
+
+    /* Header */
+    header.site{
+      position: sticky; top:0; z-index: 50; border-bottom: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.95); backdrop-filter: blur(10px);
+    }
+    .nav{ display:flex; align-items:center; gap:20px; padding: 14px 0; }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing:.3px; color: var(--brand); }
+    .brand-logo{ width:34px; height:34px; border-radius: 10px; background: linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow: var(--shadow) }
+    .nav a{ font-weight:600; opacity:.9 }
+    .nav .spacer{ flex:1 }
+
+    /* Buttons */
+    .btn{ display:inline-flex; align-items:center; gap:10px; border:0; cursor:pointer; font-weight:700; letter-spacing:.2px; padding:16px 22px; border-radius: var(--radius-sm); transition: .2s; }
+    .btn-primary{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; box-shadow: var(--shadow); }
+    .btn-ghost{ background: transparent; color: var(--brand); border:1px solid var(--brand); }
+
+    /* HERO */
+    .hero{ padding: 56px 0 32px; }
+    .hero-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items:center; }
+    .eyebrow{ font-weight:700; color: var(--brand-2); text-transform: uppercase; letter-spacing: .12em; font-size:.8rem }
+    h1{ font-size: clamp(2rem, 4vw, 3.2rem); line-height:1.15; margin: 10px 0 16px; }
+    h1 span{ background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .sub{ font-size: clamp(1rem, 1.4vw, 1.2rem); color: var(--muted); margin-bottom: 22px }
+    .hero-img{ display:flex; justify-content:center; align-items:center; }
+    .hero-img img{ max-width: 520px; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+
+    /* Countdown strip */
+    .strip{ margin: 12px 0 30px; padding: 14px; border-radius: var(--radius); display:flex; gap:14px; align-items:center; justify-content:space-between; background: linear-gradient(90deg, rgba(230,57,70,.15), rgba(245,158,11,.15)); border:1px dashed rgba(0,0,0,.1) }
+    .count{ font-weight:800; font-variant-numeric: tabular-nums; display:flex; gap:10px; align-items:center }
+
+    /* Sections */
+    section{ padding: 56px 0 }
+    .sec-title{ font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin-bottom: 18px; color: var(--brand); }
+    .muted{ color: var(--muted) }
+
+    .grid-3{ display:grid; grid-template-columns: repeat(3,1fr); gap:22px }
+    .grid-4{ display:grid; grid-template-columns: repeat(4,1fr); gap:22px }
+
+    /* Cards e elementos */
+    .card{ background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78)); border:1px solid rgba(0,0,0,.05); border-radius: var(--radius); padding: 22px; }
+    .badge{ background: rgba(245,158,11,.15); color:#92400e; font-weight:700; padding:6px 10px; border-radius:999px }
+    .avatar{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
+
+    /* Pricing */
+    .pricing{ display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:stretch }
+    .price-card{ padding:28px; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.86)); border:1px solid rgba(0,0,0,.06) }
+    .price{ font-size: clamp(2rem, 3vw, 2.6rem); font-weight:800; }
+    .features{ display:grid; gap:10px; margin: 16px 0 }
+    .features li{ display:flex; gap:10px; align-items:flex-start }
+
+    /* Testimonials */
+    .testimonial{ padding:20px; border-radius: var(--radius); border:1px solid rgba(0,0,0,.06); background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78)); }
+    .testimonial .who{ display:flex; align-items:center; gap:12px; margin-top:12px }
+
+    /* FAQ */
+    .faq{ display:grid; gap:12px }
+    .faq-item{ border:1px solid rgba(0,0,0,.08); border-radius: var(--radius); overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.82)); }
+    .faq-q{ display:flex; justify-content:space-between; align-items:center; padding:16px 18px; cursor:pointer; font-weight:700 }
+    .faq-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; padding:0 18px }
+    .faq-a p{ margin: 0 0 16px }
+
+    /* Floating CTA */
+    .floating-cta{ position: fixed; inset:auto 18px 18px auto; z-index:40; display:flex; gap:12px; align-items:center; background: var(--surface); border:1px solid rgba(0,0,0,.08); padding:12px 14px; border-radius: 999px; box-shadow: var(--shadow); transform: translateY(100px); opacity:0; transition:.25s }
+    .floating-cta.show{ transform:none; opacity:1 }
+
+    /* Footer */
+    footer{ border-top:1px solid rgba(0,0,0,.08); padding:36px 0 60px; color: var(--muted); background: #fffaf7 }
+
+    /* Breakpoints */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; gap: 22px }
+      .hero-img{ order: -1 }
+      .hero-img img{ max-width: min(88vw, 560px) }
+      .btn{ width:100%; justify-content:center }
+      .container{ padding-inline: 16px }
+      .pricing{ grid-template-columns: 1fr }
+      .grid-3{ grid-template-columns: 1fr }
+      .grid-4{ grid-template-columns: repeat(2,1fr) }
+    }
+
+    @media (max-width: 560px){
+      h1{ font-size: clamp(1.8rem, 9vw, 2.4rem) }
+      .sub{ font-size: 1rem }
+      .grid-4{ grid-template-columns: 1fr }
+    }
+  </style>
+</head>
+<body>
+  <a href="#comprar" class="sr-only">Pular para o botão Comprar</a>
+
+  <header class="site" role="banner">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <span>Pote do Lucro</span>
+      </div>
+      <nav aria-label="Navegação primária" class="spacer" style="display:flex; gap:16px; justify-content:flex-end;">
+        <a href="#beneficios" class="hide-mobile">Benefícios</a>
+        <a href="#como-funciona" class="hide-mobile">Como funciona</a>
+        <a href="#depoimentos" class="hide-mobile">Depoimentos</a>
+        <a href="#preco" class="hide-mobile">Preço</a>
+        <a href="#faq" class="hide-mobile">Dúvidas</a>
+        <a href="#comprar" class="btn btn-primary" aria-label="Comprar agora">Comprar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Comece a lucrar em até 7 dias</div>
+          <h1>Guia definitivo para <span>lucrar com bolos no pote</span> usando o que você já tem em casa</h1>
+          <p class="sub">Método simples, validado por iniciantes, com checklists, receitas e roteiro de vendas. Sem frescura, sem enrolação: do zero à primeira venda.</p>
+
+          <div class="card strip" role="region" aria-label="Oferta relâmpago">
+            <strong>Oferta relâmpago:</strong>
+            <div class="count" id="countdown">00:00:00</div>
+            <div style="display:flex; gap:10px; align-items:center">
+              <span class="badge" aria-label="Garantia">✔ Garantia 7 dias</span>
+            </div>
+          </div>
+
+          <div class="cta-wrap" style="display:flex; gap:12px; flex-wrap:wrap">
+            <a id="comprar" href="#checkout" class="btn btn-primary" style="font-size:1.05rem">Quero lucrar agora</a>
+            <a href="#preco" class="btn btn-ghost">Ver o que está incluso</a>
+          </div>
+          <div class="trustbar" style="display:flex; gap:18px; align-items:center; margin-top: 14px; opacity:.85; font-size:.9rem">
+            <img src="https://placehold.co/28x28" alt="Ícone de selo" loading="lazy"/>
+            <span>Mais de 3.200 alunos iniciantes já aplicaram.</span>
+          </div>
+        </div>
+
+        <div class="hero-img">
+          <img src="1754949858.png" alt="Capa do eBook Pote do Lucro" loading="lazy" width="1000" height="640" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios">
+      <div class="container">
+        <h2 class="sec-title">Por que este guia vende?</h2>
+        <p class="muted">Você aprende rápido, aplica no mesmo dia e foca no que realmente converte.</p>
+        <div class="grid-4" style="margin-top:16px">
+          <div class="card"><strong>Conteúdo direto ao ponto</strong><br/><span class="muted">Nada de teoria demais. Só o que gera pedido.</span></div>
+          <div class="card"><strong>Receitas que fotografam bem</strong><br/><span class="muted">Design de produto que chama clique e pedido no WhatsApp.</span></div>
+          <div class="card"><strong>Estratégias de divulgação</strong><br/><span class="muted">Modelos prontos de mensagens e stories.</span></div>
+          <div class="card"><strong>Controle de custos</strong><br/><span class="muted">Precificação simples para margem saudável.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+      <div class="container">
+        <h2 class="sec-title">Como funciona</h2>
+        <div class="grid-3">
+          <div class="card"><strong>1) Estude 60 min</strong><br/><span class="muted">Leia o guia e veja o checklist de preparo.</span></div>
+          <div class="card"><strong>2) Prepare 4 sabores</strong><br/><span class="muted">Com ingredientes acessíveis e montagem bonita.</span></div>
+          <div class="card"><strong>3) Venda em 7 dias</strong><br/><span class="muted">Use o roteiro de mensagens e o catálogo pronto.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos">
+      <div class="container">
+        <h2 class="sec-title">Resultados de quem já aplicou</h2>
+        <div class="grid-3">
+          <div class="testimonial">
+            "Vendi 27 unidades no primeiro fim de semana!" — <em>Ana, BH</em>
+            <div class="who"><div class="avatar" aria-hidden="true" style="width:40px;height:40px;border-radius:50%"></div><div><strong>Ana</strong><br/><span class="muted">Belo Horizonte</span></div></div>
+          </div>
+          <div class="testimonial">
+            "Nunca tinha vendido nada. O roteiro de mensagens me salvou."
+            <div class="who"><div class="avatar" aria-hidden="true" style="width:40px;height:40px;border-radius:50%"></div><div><strong>Juliana</strong><br/><span class="muted">São Paulo</span></div></div>
+          </div>
+          <div class="testimonial">
+            "Simulador de preço é vida! Parei de perder dinheiro."
+            <div class="who"><div class="avatar" aria-hidden="true" style="width:40px;height:40px;border-radius:50%"></div><div><strong>Carla</strong><br/><span class="muted">Curitiba</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREÇO / OFERTA -->
+    <section id="preco">
+      <div class="container pricing">
+        <div class="price-card">
+          <div class="badge">Mais vendido</div>
+          <h3 style="margin:10px 0 6px">Pote do Lucro — Guia Definitivo</h3>
+          <p class="muted">Acesso imediato + atualizações futuras inclusas.</p>
+
+          <div style="display:flex; align-items:baseline; gap:12px; margin:12px 0 8px">
+            <div class="price"><small style="font-size:1rem; opacity:.7">R$</small>79<small style="font-size:1rem; opacity:.7">,00</small></div>
+            <s class="muted">R$ 149,00</s>
+          </div>
+          <p style="margin:6px 0 18px">ou 7x no cartão • <strong>Garantia incondicional de 7 dias</strong></p>
+
+          <ul class="features">
+            <li>✔ Guia passo a passo (PDF + versão mobile)</li>
+            <li>✔ 20 receitas testadas e fotogênicas</li>
+            <li>✔ Planilha de precificação e lucro (bônus)</li>
+            <li>✔ Catálogo pronto para WhatsApp (bônus)</li>
+            <li>✔ Roteiro de mensagens e stories (bônus)</li>
+          </ul>
+
+          <a href="#checkout" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1.05rem">Comprar agora</a>
+          <div style="display:flex; gap:10px; align-items:center; margin-top:14px">
+            <img src="https://placehold.co/40x24" alt="Selos de pagamento" style="opacity:.8"/>
+            <span class="muted">Pagamento seguro • Receba no e-mail</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px">O que você vai receber</h3>
+          <ul class="features">
+            <li>✔ Acesso imediato ao Guia definitivo (PDF + mobile)</li>
+            <li>✔ Checklists de preparo, compra e entrega</li>
+            <li>✔ 20 receitas de alto apelo visual</li>
+            <li>✔ Planilha de precificação com simulador</li>
+            <li>✔ Catálogo + artes base para divulgação</li>
+            <li>✔ Roteiro de mensagens e stories</li>
+            <li>✔ Atualizações futuras incluídas</li>
+          </ul>
+          <div class="card" style="margin-top:10px; display:flex; gap:14px; align-items:center">
+            <div style="width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg,var(--ok),#34d399)" aria-hidden="true"></div>
+            <div>
+              <strong>Garantia incondicional</strong><br/>
+              <span class="muted">7 dias para testar. Se não amar, devolvemos 100%.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="sec-title">Dúvidas frequentes</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Funciona pra quem nunca vendeu nada?<span>+</span></button>
+            <div class="faq-a"><p>Sim. O guia foi feito para iniciantes, com passo a passo simples e exemplos práticos.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Quanto preciso investir pra começar?<span>+</span></button>
+            <div class="faq-a"><p>Você pode começar com ingredientes básicos e embalagens simples. O guia mostra como reduzir custos e ainda ter apresentação bonita.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Recebo na hora após o pagamento?<span>+</span></button>
+            <div class="faq-a"><p>Sim. Assim que o pagamento é aprovado, o acesso chega no seu e-mail imediatamente.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">E se eu não gostar?<span>+</span></button>
+            <div class="faq-a"><p>Sem risco: você tem 7 dias para pedir reembolso total. Basta enviar uma mensagem e devolvemos 100%.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE O AUTOR -->
+    <section>
+      <div class="container">
+        <div class="card" style="display:grid; grid-template-columns: 120px 1fr; gap:18px; align-items:center">
+          <div class="avatar" style="width:120px; height:120px; border-radius: 22px" aria-hidden="true"></div>
+          <div>
+            <h3 style="margin:0 0 6px">Sobre o autor</h3>
+            <p class="muted">Designer e gestor de tráfego, criador do método Pote do Lucro. Apaixonado por comunicação simples e resultado rápido para iniciantes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-cta" id="floatCta" role="region" aria-label="Compre agora">
+    <span style="font-weight:700">Oferta ativa</span>
+    <a href="#checkout" class="btn btn-primary">Comprar agora</a>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center">
+      <div>© <span id="year"></span> Sua Marca — Todos os direitos reservados.</div>
+      <div>
+        <a href="https://wa.me/55SEU_NUMERO" target="_blank" rel="noopener">Suporte no WhatsApp</a> ·
+        <a href="#" target="_blank" rel="noopener">Política de Privacidade</a> ·
+        <a href="#" target="_blank" rel="noopener">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth anchor scroll (acessível)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); }
+      });
+    });
+
+    // Countdown com persistência local (termina em 48h a partir da primeira visita)
+    (function(){
+      const KEY = 'pote_countdown_end';
+      let end = localStorage.getItem(KEY);
+      if(!end){
+        const d = new Date();
+        d.setHours(d.getHours()+48);
+        end = d.toISOString();
+        localStorage.setItem(KEY, end);
+      }
+      const $cd = document.getElementById('countdown');
+      function tick(){
+        const delta = new Date(end) - new Date();
+        if(delta <= 0){ $cd.textContent = '00:00:00'; return; }
+        const h = Math.floor(delta/3.6e6).toString().padStart(2,'0');
+        const m = Math.floor((delta%3.6e6)/6e4).toString().padStart(2,'0');
+        const s = Math.floor((delta%6e4)/1e3).toString().padStart(2,'0');
+        $cd.textContent = `${h}:${m}:${s}`;
+        requestAnimationFrame(()=>setTimeout(tick, 1000));
+      }
+      tick();
+    })();
+
+    // FAQ acordeon
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const box = btn.parentElement.querySelector('.faq-a');
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !open);
+        box.style.maxHeight = open ? '0px' : box.scrollHeight + 'px';
+      })
+    })
+
+    // Floating CTA após rolagem
+    const floatCta = document.getElementById('floatCta');
+    const hero = document.querySelector('.hero');
+    const io = new IntersectionObserver(([entry])=>{
+      if(entry.intersectionRatio < 0.2){ floatCta.classList.add('show'); }
+      else { floatCta.classList.remove('show'); }
+    }, { threshold: [0, .2, 1] });
+    io.observe(hero);
+  </script>
+</body>
+</html>
